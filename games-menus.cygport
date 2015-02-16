@@ -11,6 +11,8 @@ SRC_URI="http://pkgs.fedoraproject.org/repo/pkgs/games-menus/games-menus-${VERSI
 
 ARCH=noarch
 
+REQUIRES="redhat-menus"
+
 src_compile() { :; }
 
 src_install() {
