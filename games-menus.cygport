@@ -1,0 +1,26 @@
+NAME="games-menus"
+VERSION=0.3.2
+RELEASE=1
+CATEGORY="X11"
+SUMMARY="Categorized submenus for the Games menu"
+DESCRIPTION="Categorized submenus for the MATE/KDE Games menu, for better
+usability of the games menu with lots of games installed."
+HOMEPAGE="https://www.redhat.com/archives/fedora-games-list/2007-March/msg00003.html"
+md5sum=181a2c2a4e6f720e04d3f2e17cda2219
+SRC_URI="http://pkgs.fedoraproject.org/repo/pkgs/games-menus/games-menus-${VERSION}.tar.gz/${md5sum}/games-menus-${VERSION}.tar.gz"
+
+ARCH=noarch
+
+src_compile() { :; }
+
+src_install() {
+	cd ${S}
+	insinto /etc/xdg/menus/applications-merged
+	doins *.menu
+
+	dodir /usr/share
+	cp -a desktop-directories ${D}/usr/share/
+
+	dodir /usr/share/icons/hicolor
+	cp -a icons/*/ ${D}/usr/share/icons/hicolor/
+}
